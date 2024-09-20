@@ -2,7 +2,7 @@
 
   <link name="base_link">
     <visual>
-      <origin xyz="0 0 0.68" rpy="0 0 0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
         <mesh filename="package://spot_IL/models/meshes/base.obj"/>
       </geometry>
@@ -10,125 +10,134 @@
         <color rgba="1 0.8431 0 1"/>
       </material>
     </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://spot_IL/models/meshes/base.obj"/>
+      </geometry>
+    </collision>
     <inertial>
-        <mass value="11.44"/>
+        <mass value="16.7"/>
         <inertia ixx="0.081" ixy="0.0" ixz="-0.001" iyy="0.646" iyz="0.0" izz="0.666"/>
     </inertial>
+    <dynamics damping="10" friction="0.8"/>
   </link>
 
+  <!-- Camera Definitions -->
   <gazebo reference="base_link">
     <sensor name="right_camera" type="camera">
-          <pose>-0.125 -0.12 0.715 0 0.2 -1.571</pose>
-          <camera>
-            <horizontal_fov>1.047</horizontal_fov>
-            <image>
-              <width>800</width>
-              <height>600</height>
-            </image>
-          </camera>
-          <always_on>1</always_on>
-          <update_rate>30</update_rate>
-          <visualize>false</visualize>
-          <plugin name="camera_controller" filename="libgazebo_ros_camera.so"> <!-- Camera Image Plugin -->
-              <robotNamespace>/</robotNamespace>
-              <cameraName>right_camera</cameraName>
-              <imageTopicName>image_raw</imageTopicName>
-              <cameraInfoTopicName>camera_info</cameraInfoTopicName>
-          </plugin>
+      <pose>-0.125 -0.12 0.035 0 0.2 -1.571</pose>
+      <camera>
+        <horizontal_fov>1.047</horizontal_fov>
+        <image>
+          <width>800</width>
+          <height>600</height>
+        </image>
+      </camera>
+      <always_on>1</always_on>
+      <update_rate>30</update_rate>
+      <visualize>true</visualize>
+      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+        <robotNamespace>/</robotNamespace>
+        <cameraName>right_camera</cameraName>
+        <imageTopicName>image_raw</imageTopicName>
+        <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+      </plugin>
     </sensor>
   </gazebo>
 
   <gazebo reference="base_link">
     <sensor name="left_camera" type="camera">
-          <pose>-0.125 0.12 0.715 0 0.2 1.571</pose>
-          <camera>
-            <horizontal_fov>1.047</horizontal_fov>
-            <image>
-              <width>800</width>
-              <height>600</height>
-            </image>
-          </camera>
-          <always_on>1</always_on>
-          <update_rate>30</update_rate>
-          <visualize>false</visualize>
-          <plugin name="camera_controller" filename="libgazebo_ros_camera.so"> <!-- Camera Image Plugin -->
-              <robotNamespace>/</robotNamespace>
-              <cameraName>left_camera</cameraName>
-              <imageTopicName>image_raw</imageTopicName>
-              <cameraInfoTopicName>camera_info</cameraInfoTopicName>
-          </plugin>
+      <pose>-0.125 0.12 0.035 0 0.2 1.571</pose>
+      <camera>
+        <horizontal_fov>1.047</horizontal_fov>
+        <image>
+          <width>800</width>
+          <height>600</height>
+        </image>
+      </camera>
+      <always_on>1</always_on>
+      <update_rate>30</update_rate>
+      <visualize>true</visualize>
+      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+        <robotNamespace>/</robotNamespace>
+        <cameraName>left_camera</cameraName>
+        <imageTopicName>image_raw</imageTopicName>
+        <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+      </plugin>
     </sensor>
   </gazebo>
 
   <gazebo reference="base_link">
     <sensor name="front_right_camera" type="camera">
-          <pose>0.415 -0.037 0.67 -1.355558 0.353917 0.554196</pose>
-          <camera>
-            <horizontal_fov>1.047</horizontal_fov>
-            <image>
-              <width>800</width>
-              <height>600</height>
-            </image>
-          </camera>
-          <always_on>1</always_on>
-          <update_rate>30</update_rate>
-          <visualize>false</visualize>
-          <plugin name="camera_controller" filename="libgazebo_ros_camera.so"> <!-- Camera Image Plugin -->
-              <robotNamespace>/</robotNamespace>
-              <cameraName>front_right_camera</cameraName>
-              <imageTopicName>image_raw</imageTopicName>
-              <cameraInfoTopicName>camera_info</cameraInfoTopicName>
-          </plugin>
+      <pose>0.415 -0.037 -0.01 -1.355558 0.353917 0.554196</pose>
+      <camera>
+        <horizontal_fov>1.047</horizontal_fov>
+        <image>
+          <width>800</width>
+          <height>600</height>
+        </image>
+      </camera>
+      <always_on>1</always_on>
+      <update_rate>30</update_rate>
+      <visualize>true</visualize>
+      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+        <robotNamespace>/</robotNamespace>
+        <cameraName>front_right_camera</cameraName>
+        <imageTopicName>image_raw</imageTopicName>
+        <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+      </plugin>
     </sensor>
   </gazebo>
 
-    <gazebo reference="base_link">
+  <gazebo reference="base_link">
     <sensor name="back_camera" type="camera">
-          <pose>-0.425 0 0.69 0 0.3 -3.142</pose>
-          <camera>
-            <horizontal_fov>1.047</horizontal_fov>
-            <image>
-              <width>800</width>
-              <height>600</height>
-            </image>
-          </camera>
-          <always_on>1</always_on>
-          <update_rate>30</update_rate>
-          <visualize>false</visualize>
-          <plugin name="camera_controller" filename="libgazebo_ros_camera.so"> <!-- Camera Image Plugin -->
-              <robotNamespace>/</robotNamespace>
-              <cameraName>back_camera</cameraName>
-              <imageTopicName>image_raw</imageTopicName>
-              <cameraInfoTopicName>camera_info</cameraInfoTopicName>
-          </plugin>
+      <pose>-0.425 0 0.01 0 0.3 -3.142</pose>
+      <camera>
+        <horizontal_fov>1.047</horizontal_fov>
+        <image>
+          <width>800</width>
+          <height>600</height>
+        </image>
+      </camera>
+      <always_on>1</always_on>
+      <update_rate>30</update_rate>
+      <visualize>true</visualize>
+      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+        <robotNamespace>/</robotNamespace>
+        <cameraName>back_camera</cameraName>
+        <imageTopicName>image_raw</imageTopicName>
+        <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+      </plugin>
     </sensor>
   </gazebo>
 
-    <gazebo reference="base_link">
+  <gazebo reference="base_link">
     <sensor name="front_left_camera" type="camera">
-          <pose>0.415 0.037 0.67 1.355558 0.353917 -0.554196</pose>
-          <camera>
-            <horizontal_fov>1.047</horizontal_fov>
-            <image>
-              <width>800</width>
-              <height>600</height>
-            </image>
-          </camera>
-          <always_on>1</always_on>
-          <update_rate>30</update_rate>
-          <visualize>false</visualize>
-          <plugin name="camera_controller" filename="libgazebo_ros_camera.so"> <!-- Camerea Image Plugin -->
-              <robotNamespace>/</robotNamespace>
-              <cameraName>front_left_camera</cameraName>
-              <imageTopicName>image_raw</imageTopicName>
-              <cameraInfoTopicName>camera_info</cameraInfoTopicName>
-          </plugin>
+      <pose>0.415 0.037 -0.01 1.355558 0.353917 -0.554196</pose>
+      <camera>
+        <horizontal_fov>1.047</horizontal_fov>
+        <image>
+          <width>800</width>
+          <height>600</height>
+        </image>
+      </camera>
+      <always_on>1</always_on>
+      <update_rate>30</update_rate>
+      <visualize>true</visualize>
+      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+        <robotNamespace>/</robotNamespace>
+        <cameraName>front_left_camera</cameraName>
+        <imageTopicName>image_raw</imageTopicName>
+        <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+      </plugin>
     </sensor>
   </gazebo>
-  
+
+  <!-- Front Left Hip -->
   <link name="front_left.hip">
     <visual>
-      <origin xyz="0 0 0.68" rpy="0 0 0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
         <mesh filename="package://spot_IL/models/meshes/fl.hip.obj"/>
       </geometry>
@@ -136,24 +145,32 @@
         <color rgba="0.2 0.2 0.2 1"/>
       </material>
     </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://spot_IL/models/meshes/fl.hip.obj"/>
+      </geometry>
+    </collision>
     <inertial>
-        <mass value="2.145"/>
+        <mass value="2.5"/>
         <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
     </inertial>
+    <dynamics damping="10" friction="0.5"/>
   </link>
-
 
   <joint name="front_left.hx" type="revolute">
     <origin xyz="0.29785 0.05500 0.00000" rpy="0 0 0"/>
     <axis xyz="1 0 0"/>
     <parent link="base_link"/>
     <child link="front_left.hip"/>
-    <limit effort="1000" velocity="1000.00" lower="-0.78539816339744827899" upper="0.78539816339744827899"/>
+    <limit effort="100" velocity="2.00" lower="-0.785" upper="0.785"/>
+    <dynamics damping="10" friction="0.5"/>
   </joint>
 
+  <!-- Front Left Upper Leg -->
   <link name="front_left.upperleg">
     <visual>
-      <origin xyz="0 0 0.68" rpy="0 0 0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
         <mesh filename="package://spot_IL/models/meshes/fl.uleg.obj"/>
       </geometry>
@@ -161,10 +178,17 @@
         <color rgba="1 0.8431 0 1"/>
       </material>
     </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://spot_IL/models/meshes/fl.uleg.obj"/>
+      </geometry>
+    </collision>
     <inertial>
-        <mass value="1.43"/>
+        <mass value="1.8"/>
         <inertia ixx="0.017" ixy="0.0" ixz="0.0" iyy="0.017" iyz="0.0" izz="0.002"/>
     </inertial>
+    <dynamics damping="10" friction="0.5"/>
   </link>
 
   <joint name="front_left.hy" type="revolute">
@@ -172,12 +196,14 @@
     <axis xyz="0 1 0"/>
     <parent link="front_left.hip"/>
     <child link="front_left.upperleg"/>
-    <limit effort="1000" velocity="1000.00" lower="-0.89884456477707963539" upper="2.2951079663725435509"/>
+    <limit effort="100" velocity="2.00" lower="-0.898" upper="2.295"/>
+    <dynamics damping="10" friction="0.5"/>
   </joint>
 
+  <!-- Front Left Lower Leg -->
   <link name="front_left.lowerleg">
     <visual>
-      <origin xyz="0 0 0.68" rpy="0 0 0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
         <mesh filename="package://spot_IL/models/meshes/fr.lleg.obj"/>
       </geometry>
@@ -185,10 +211,17 @@
         <color rgba="0.2 0.2 0.2 1"/>
       </material>
     </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://spot_IL/models/meshes/fr.lleg.obj"/>
+      </geometry>
+    </collision>
     <inertial>
-        <mass value="0.715"/>
+        <mass value="0.8"/>
         <inertia ixx="0.004" ixy="0.0" ixz="0.0" iyy="0.004" iyz="0.0" izz="0.0"/>
     </inertial>
+    <dynamics damping="10" friction="0.5"/>
   </link>
 
   <joint name="front_left.knee" type="revolute">
@@ -196,12 +229,14 @@
     <axis xyz="0 1 0"/>
     <parent link="front_left.upperleg"/>
     <child link="front_left.lowerleg"/>
-    <limit effort="1000" velocity="1000.00" lower="-2.7929" upper="-0.254402"/>
+    <limit effort="100" velocity="2.00" lower="-2.792" upper="-0.254"/>
+    <dynamics damping="10" friction="0.5"/>
   </joint>
 
+  <!-- Front Right Hip -->
   <link name="front_right.hip">
     <visual>
-      <origin xyz="0 0 0.68" rpy="0 0 0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
         <mesh filename="package://spot_IL/models/meshes/fr.hip.obj"/>
       </geometry>
@@ -209,10 +244,17 @@
         <color rgba="0.2 0.2 0.2 1"/>
       </material>
     </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://spot_IL/models/meshes/fr.hip.obj"/>
+      </geometry>
+    </collision>
     <inertial>
-        <mass value="2.145"/>
+        <mass value="2.5"/>
         <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
     </inertial>
+    <dynamics damping="10" friction="0.5"/>
   </link>
 
   <joint name="front_right.hx" type="revolute">
@@ -220,12 +262,14 @@
     <axis xyz="1 0 0"/>
     <parent link="base_link"/>
     <child link="front_right.hip"/>
-    <limit effort="1000" velocity="1000.00" lower="-0.78539816339744827899" upper="0.78539816339744827899"/>
+    <limit effort="100" velocity="2.00" lower="-0.785" upper="0.785"/>
+    <dynamics damping="10" friction="0.5"/>
   </joint>
 
+  <!-- Front Right Upper Leg -->
   <link name="front_right.upperleg">
     <visual>
-      <origin xyz="0 0 0.68" rpy="0 0 0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
         <mesh filename="package://spot_IL/models/meshes/fr.uleg.obj"/>
       </geometry>
@@ -233,10 +277,17 @@
         <color rgba="1 0.8431 0 1"/>
       </material>
     </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://spot_IL/models/meshes/fr.uleg.obj"/>
+      </geometry>
+    </collision>
     <inertial>
-        <mass value="1.43"/>
+        <mass value="1.8"/>
         <inertia ixx="0.017" ixy="0.0" ixz="0.0" iyy="0.017" iyz="0.0" izz="0.002"/>
     </inertial>
+    <dynamics damping="10" friction="0.5"/>
   </link>
 
   <joint name="front_right.hy" type="revolute">
@@ -244,12 +295,14 @@
     <axis xyz="0 1 0"/>
     <parent link="front_right.hip"/>
     <child link="front_right.upperleg"/>
-    <limit effort="1000" velocity="1000.00" lower="-0.898845" upper="2.24363"/>
+    <limit effort="100" velocity="2.00" lower="-0.898" upper="2.295"/>
+    <dynamics damping="10" friction="0.5"/>
   </joint>
 
+  <!-- Front Right Lower Leg -->
   <link name="front_right.lowerleg">
     <visual>
-      <origin xyz="0 0 0.68" rpy="0 0 0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
         <mesh filename="package://spot_IL/models/meshes/fr.lleg.obj"/>
       </geometry>
@@ -257,10 +310,17 @@
         <color rgba="0.2 0.2 0.2 1"/>
       </material>
     </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://spot_IL/models/meshes/fr.lleg.obj"/>
+      </geometry>
+    </collision>
     <inertial>
-        <mass value="0.715"/>
+        <mass value="0.8"/>
         <inertia ixx="0.004" ixy="0.0" ixz="0.0" iyy="0.004" iyz="0.0" izz="0.0"/>
     </inertial>
+    <dynamics damping="10" friction="0.5"/>
   </link>
 
   <joint name="front_right.knee" type="revolute">
@@ -268,23 +328,32 @@
     <axis xyz="0 1 0"/>
     <parent link="front_right.upperleg"/>
     <child link="front_right.lowerleg"/>
-    <limit effort="1000" velocity="1000.00" lower="-2.7929" upper="-0.255648"/>
+    <limit effort="100" velocity="2.00" lower="-2.792" upper="-0.255"/>
+    <dynamics damping="10" friction="0.5"/>
   </joint>
 
+  <!-- Hind Left Hip -->
   <link name="hind_left.hip">
     <visual>
-      <origin xyz="0 0 0.68" rpy="0 0 0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
         <mesh filename="package://spot_IL/models/meshes/hl.hip.obj"/>
       </geometry>
-      <material name="hl.hip">
+      <material name="hind_left.hip">
         <color rgba="0.2 0.2 0.2 1"/>
       </material>
     </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://spot_IL/models/meshes/hl.hip.obj"/>
+      </geometry>
+    </collision>
     <inertial>
-        <mass value="2.145"/>
+        <mass value="2.5"/>
         <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
     </inertial>
+    <dynamics damping="10" friction="0.5"/>
   </link>
 
   <joint name="hind_left.hx" type="revolute">
@@ -292,12 +361,14 @@
     <axis xyz="1 0 0"/>
     <parent link="base_link"/>
     <child link="hind_left.hip"/>
-    <limit effort="1000" velocity="1000.00" lower="-0.78539816339744827899" upper="0.78539816339744827899"/>
+    <limit effort="100" velocity="2.00" lower="-0.785" upper="0.785"/>
+    <dynamics damping="10" friction="0.5"/>
   </joint>
 
+  <!-- Hind Left Upper Leg -->
   <link name="hind_left.upperleg">
     <visual>
-      <origin xyz="0 0 0.68" rpy="0 0 0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
         <mesh filename="package://spot_IL/models/meshes/hl.uleg.obj"/>
       </geometry>
@@ -305,10 +376,17 @@
         <color rgba="1 0.8431 0 1"/>
       </material>
     </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://spot_IL/models/meshes/hl.uleg.obj"/>
+      </geometry>
+    </collision>
     <inertial>
-        <mass value="1.43"/>
+        <mass value="1.8"/>
         <inertia ixx="0.017" ixy="0.0" ixz="0.0" iyy="0.017" iyz="0.0" izz="0.002"/>
     </inertial>
+    <dynamics damping="10" friction="0.5"/>
   </link>
 
   <joint name="hind_left.hy" type="revolute">
@@ -316,12 +394,14 @@
     <axis xyz="0 1 0"/>
     <parent link="hind_left.hip"/>
     <child link="hind_left.upperleg"/>
-    <limit effort="1000" velocity="1000.00" lower="-0.89884456477707963539" upper="2.2951079663725435509"/>
+    <limit effort="100" velocity="2.00" lower="-0.898" upper="2.295"/>
+    <dynamics damping="10" friction="0.5"/>
   </joint>
 
+  <!-- Hind Left Lower Leg -->
   <link name="hind_left.lowerleg">
     <visual>
-      <origin xyz="0 0 0.68" rpy="0 0 0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
         <mesh filename="package://spot_IL/models/meshes/hl.lleg.obj"/>
       </geometry>
@@ -329,10 +409,17 @@
         <color rgba="0.2 0.2 0.2 1"/>
       </material>
     </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://spot_IL/models/meshes/hl.lleg.obj"/>
+      </geometry>
+    </collision>
     <inertial>
-        <mass value="0.715"/>
+        <mass value="0.8"/>
         <inertia ixx="0.004" ixy="0.0" ixz="0.0" iyy="0.004" iyz="0.0" izz="0.0"/>
     </inertial>
+    <dynamics damping="10" friction="0.5"/>
   </link>
 
   <joint name="hind_left.knee" type="revolute">
@@ -340,23 +427,32 @@
     <axis xyz="0 1 0"/>
     <parent link="hind_left.upperleg"/>
     <child link="hind_left.lowerleg"/>
-    <limit effort="1000" velocity="1000.00" lower="-2.7929" upper="-0.247067"/>
+    <limit effort="100" velocity="2.00" lower="-2.792" upper="-0.247"/>
+    <dynamics damping="10" friction="0.5"/>
   </joint>
 
+  <!-- Hind Right Hip -->
   <link name="hind_right.hip">
     <visual>
-      <origin xyz="0 0 0.68" rpy="0 0 0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
         <mesh filename="package://spot_IL/models/meshes/hr.hip.obj"/>
       </geometry>
-      <material name="hr.hip">
+      <material name="hind_right.hip">
         <color rgba="0.2 0.2 0.2 1"/>
       </material>
     </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://spot_IL/models/meshes/hr.hip.obj"/>
+      </geometry>
+    </collision>
     <inertial>
-        <mass value="2.145"/>
+        <mass value="2.5"/>
         <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
     </inertial>
+    <dynamics damping="10" friction="0.5"/>
   </link>
 
   <joint name="hind_right.hx" type="revolute">
@@ -364,23 +460,32 @@
     <axis xyz="1 0 0"/>
     <parent link="base_link"/>
     <child link="hind_right.hip"/>
-    <limit effort="1000" velocity="1000.00" lower="-0.78539816339744827899" upper="0.78539816339744827899"/>
+    <limit effort="100" velocity="2.00" lower="-0.785" upper="0.785"/>
+    <dynamics damping="10" friction="0.5"/>
   </joint>
 
+  <!-- Hind Right Upper Leg -->
   <link name="hind_right.upperleg">
     <visual>
-      <origin xyz="0 0 0.68" rpy="0 0 0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
         <mesh filename="package://spot_IL/models/meshes/hr.uleg.obj"/>
       </geometry>
-      <material name="hind_rightr.upperleg">
+      <material name="hind_right.upperleg">
         <color rgba="1 0.8431 0 1"/>
       </material>
     </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://spot_IL/models/meshes/hr.uleg.obj"/>
+      </geometry>
+    </collision>
     <inertial>
-        <mass value="1.43"/>
+        <mass value="1.8"/>
         <inertia ixx="0.017" ixy="0.0" ixz="0.0" iyy="0.017" iyz="0.0" izz="0.002"/>
     </inertial>
+    <dynamics damping="10" friction="0.5"/>
   </link>
 
   <joint name="hind_right.hy" type="revolute">
@@ -388,12 +493,14 @@
     <axis xyz="0 1 0"/>
     <parent link="hind_right.hip"/>
     <child link="hind_right.upperleg"/>
-    <limit effort="1000" velocity="1000.00" lower="-0.89884456477707963539" upper="2.2951079663725435509"/>
+    <limit effort="100" velocity="2.00" lower="-0.898" upper="2.295"/>
+    <dynamics damping="10" friction="0.5"/>
   </joint>
 
+  <!-- Hind Right Lower Leg -->
   <link name="hind_right.lowerleg">
     <visual>
-      <origin xyz="0 0 0.68" rpy="0 0 0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
         <mesh filename="package://spot_IL/models/meshes/hr.lleg.obj"/>
       </geometry>
@@ -401,10 +508,17 @@
         <color rgba="0.2 0.2 0.2 1"/>
       </material>
     </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://spot_IL/models/meshes/hr.lleg.obj"/>
+      </geometry>
+    </collision>
     <inertial>
-        <mass value="0.715"/>
+        <mass value="0.8"/>
         <inertia ixx="0.004" ixy="0.0" ixz="0.0" iyy="0.004" iyz="0.0" izz="0.0"/>
     </inertial>
+    <dynamics damping="10" friction="0.5"/>
   </link>
 
   <joint name="hind_right.knee" type="revolute">
@@ -412,7 +526,8 @@
     <axis xyz="0 1 0"/>
     <parent link="hind_right.upperleg"/>
     <child link="hind_right.lowerleg"/>
-    <limit effort="1000" velocity="1000.00" lower="-2.7929" upper="-0.248282"/>
+    <limit effort="100" velocity="2.00" lower="-2.792" upper="-0.248"/>
+    <dynamics damping="10" friction="0.5"/>
   </joint>
-  
+
 </robot>
