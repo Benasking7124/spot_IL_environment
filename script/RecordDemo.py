@@ -20,11 +20,11 @@ class RecordDemo:
         self.pub_displacement = rospy.Publisher('spot/displacement', Pose, queue_size=10)
 
         # Record 5 images from SPOT
-        front_left_camera_sub = message_filters.Subscriber('front_left_camera/image_raw', Image)
-        front_right_camera_sub = message_filters.Subscriber('front_right_camera/image_raw', Image)
-        back_camera_sub = message_filters.Subscriber('back_camera/image_raw', Image)
-        left_camera_sub = message_filters.Subscriber('left_camera/image_raw', Image)
-        right_camera_sub = message_filters.Subscriber('right_camera/image_raw', Image)
+        front_left_camera_sub = message_filters.Subscriber('spot/front_left_camera/image_raw', Image)
+        front_right_camera_sub = message_filters.Subscriber('spot/front_right_camera/image_raw', Image)
+        back_camera_sub = message_filters.Subscriber('spot/back_camera/image_raw', Image)
+        left_camera_sub = message_filters.Subscriber('spot/left_camera/image_raw', Image)
+        right_camera_sub = message_filters.Subscriber('spot/right_camera/image_raw', Image)
 
         # Record action
         action_sub = message_filters.Subscriber('spot/action', StringStamped)
