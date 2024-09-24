@@ -5,9 +5,11 @@ from geometry_msgs.msg import Pose, Point, Quaternion
 from spot_IL.msg import StringStamped
 from cv_bridge import CvBridge
 from tf.transformations import quaternion_from_euler
+import numpy as np
 
 POS_STEP = 0.1
 ROT_STEP = 0.017
+LABEL_FILE_NAME = 'labels'
 
 class RecordDemo:
 
@@ -18,6 +20,7 @@ class RecordDemo:
 
         # Publish Control Command
         self.pub_displacement = rospy.Publisher('spot/displacement', Pose, queue_size=10)
+        self.trajectory = np.empty([0, 7])
 
         # Record 5 images from SPOT
         front_left_camera_sub = message_filters.Subscriber('spot/front_left_camera/image_raw', Image)
@@ -76,6 +79,8 @@ class RecordDemo:
             displacement.orientation.z = q[2]
             displacement.orientation.w = q[3]
 
+        self.trajectory = np.vstack((self.trajectory, [displacement.position.x, displacement.position.y, displacement.position.z, displacement.orientation.x, displacement.orientation.y, displacement.orientation.z, displacement.orientation.w]))
+        np.save(self.DATASET_PATH + LABEL_FILE_NAME, self.trajectory)
         self.pub_displacement.publish(displacement)
         self.index += 1
 
