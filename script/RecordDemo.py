@@ -1,8 +1,13 @@
 #! /usr/bin/env python3
 import rospy, message_filters, os, cv2, rospkg
 from sensor_msgs.msg import Image
+from geometry_msgs.msg import Pose, Point, Quaternion
 from spot_IL.msg import StringStamped
 from cv_bridge import CvBridge
+from tf.transformations import quaternion_from_euler
+
+POS_STEP = 0.1
+ROT_STEP = 0.017
 
 class RecordDemo:
 
@@ -10,6 +15,9 @@ class RecordDemo:
         rospy.init_node('record_demo')
         self.index = 0
         self.DATASET_PATH = rospkg.RosPack().get_path('spot_IL') + '/dataset/'
+
+        # Publish Control Command
+        self.pub_displacement = rospy.Publisher('spot/displacement', Pose, queue_size=10)
 
         # Record 5 images from SPOT
         front_left_camera_sub = message_filters.Subscriber('front_left_camera/image_raw', Image)
@@ -31,24 +39,44 @@ class RecordDemo:
 
         self.save_images([front_left_image, front_right_camera, back_camera, left_camera, right_camera])
 
+        # Control Spot
+        displacement = Pose()
+        displacement.position = Point(0, 0, 0)
+        displacement.orientation = Quaternion(0, 0, 0, 1)
+
         if action.string == 'w':
             print(self.index, 'forward')
+            displacement.position.x = POS_STEP
 
         elif action.string == 's':
             print(self.index, 'backward')
+            displacement.position.x = -POS_STEP
 
         elif action.string == 'a':
             print(self.index, 'left')
+            displacement.position.y = POS_STEP
 
         elif action.string == 'd':
             print(self.index, 'right')
+            displacement.position.y = -POS_STEP
 
         elif action.string == 'q':
             print(self.index, 'turn left')
+            q = quaternion_from_euler(0, 0, ROT_STEP)
+            displacement.orientation.x = q[0]
+            displacement.orientation.y = q[1]
+            displacement.orientation.z = q[2]
+            displacement.orientation.w = q[3]
 
         elif action.string == 'e':
             print(self.index, 'turn right')
+            q = quaternion_from_euler(0, 0, -ROT_STEP)
+            displacement.orientation.x = q[0]
+            displacement.orientation.y = q[1]
+            displacement.orientation.z = q[2]
+            displacement.orientation.w = q[3]
 
+        self.pub_displacement.publish(displacement)
         self.index += 1
 
     def save_images(self, images):
