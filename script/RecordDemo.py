@@ -16,7 +16,7 @@ class RecordDemo:
     def __init__(self) -> None:
         rospy.init_node('record_demo')
         self.index = 0
-        self.DATASET_PATH = rospkg.RosPack().get_path('spot_IL') + '/dataset/'
+        self.DATASET_PATH = rospkg.RosPack().get_path('spot_IL_environment') + '/dataset/'
 
         # Publish Control Command
         self.pub_displacement = rospy.Publisher('spot/displacement', Pose, queue_size=10)
