@@ -4,7 +4,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://spot_IL_environment/models/meshes/base.obj"/>
+        <mesh filename="package://spot_IL_environment/models/spot/meshes/base.obj"/>
       </geometry>
       <material name="base_link">
         <color rgba="1 0.8431 0 1"/>
@@ -13,7 +13,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://spot_IL_environment/models/meshes/base.obj"/>
+        <mesh filename="package://spot_IL_environment/models/spot/meshes/base.obj"/>
       </geometry>
     </collision>
     <inertial>
@@ -139,7 +139,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://spot_IL_environment/models/meshes/fl.hip.obj"/>
+        <mesh filename="package://spot_IL_environment/models/spot/meshes/fl.hip.obj"/>
       </geometry>
       <material name="front_left.hip">
         <color rgba="0.2 0.2 0.2 1"/>
@@ -148,7 +148,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://spot_IL_environment/models/meshes/fl.hip.obj"/>
+        <mesh filename="package://spot_IL_environment/models/spot/meshes/fl.hip.obj"/>
       </geometry>
     </collision>
     <inertial>
@@ -172,7 +172,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://spot_IL_environment/models/meshes/fl.uleg.obj"/>
+        <mesh filename="package://spot_IL_environment/models/spot/meshes/fl.uleg.obj"/>
       </geometry>
       <material name="front_left.upperleg">
         <color rgba="1 0.8431 0 1"/>
@@ -181,7 +181,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://spot_IL_environment/models/meshes/fl.uleg.obj"/>
+        <mesh filename="package://spot_IL_environment/models/spot/meshes/fl.uleg.obj"/>
       </geometry>
     </collision>
     <inertial>
@@ -205,7 +205,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://spot_IL_environment/models/meshes/fr.lleg.obj"/>
+        <mesh filename="package://spot_IL_environment/models/spot/meshes/fr.lleg.obj"/>
       </geometry>
       <material name="front_left.lowerleg">
         <color rgba="0.2 0.2 0.2 1"/>
@@ -214,7 +214,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://spot_IL_environment/models/meshes/fr.lleg.obj"/>
+        <mesh filename="package://spot_IL_environment/models/spot/meshes/fr.lleg.obj"/>
       </geometry>
     </collision>
     <inertial>
@@ -238,7 +238,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://spot_IL_environment/models/meshes/fr.hip.obj"/>
+        <mesh filename="package://spot_IL_environment/models/spot/meshes/fr.hip.obj"/>
       </geometry>
       <material name="front_right.hip">
         <color rgba="0.2 0.2 0.2 1"/>
@@ -247,7 +247,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://spot_IL_environment/models/meshes/fr.hip.obj"/>
+        <mesh filename="package://spot_IL_environment/models/spot/meshes/fr.hip.obj"/>
       </geometry>
     </collision>
     <inertial>
@@ -271,7 +271,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://spot_IL_environment/models/meshes/fr.uleg.obj"/>
+        <mesh filename="package://spot_IL_environment/models/spot/meshes/fr.uleg.obj"/>
       </geometry>
       <material name="front_right.upperleg">
         <color rgba="1 0.8431 0 1"/>
@@ -280,7 +280,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://spot_IL_environment/models/meshes/fr.uleg.obj"/>
+        <mesh filename="package://spot_IL_environment/models/spot/meshes/fr.uleg.obj"/>
       </geometry>
     </collision>
     <inertial>
@@ -304,7 +304,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://spot_IL_environment/models/meshes/fr.lleg.obj"/>
+        <mesh filename="package://spot_IL_environment/models/spot/meshes/fr.lleg.obj"/>
       </geometry>
       <material name="front_right.lowerleg">
         <color rgba="0.2 0.2 0.2 1"/>
@@ -313,7 +313,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://spot_IL_environment/models/meshes/fr.lleg.obj"/>
+        <mesh filename="package://spot_IL_environment/models/spot/meshes/fr.lleg.obj"/>
       </geometry>
     </collision>
     <inertial>
@@ -337,7 +337,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://spot_IL_environment/models/meshes/hl.hip.obj"/>
+        <mesh filename="package://spot_IL_environment/models/spot/meshes/hl.hip.obj"/>
       </geometry>
       <material name="hind_left.hip">
         <color rgba="0.2 0.2 0.2 1"/>
@@ -346,7 +346,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://spot_IL_environment/models/meshes/hl.hip.obj"/>
+        <mesh filename="package://spot_IL_environment/models/spot/meshes/hl.hip.obj"/>
       </geometry>
     </collision>
     <inertial>
@@ -370,7 +370,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://spot_IL_environment/models/meshes/hl.uleg.obj"/>
+        <mesh filename="package://spot_IL_environment/models/spot/meshes/hl.uleg.obj"/>
       </geometry>
       <material name="hind_left.upperleg">
         <color rgba="1 0.8431 0 1"/>
@@ -379,7 +379,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://spot_IL_environment/models/meshes/hl.uleg.obj"/>
+        <mesh filename="package://spot_IL_environment/models/spot/meshes/hl.uleg.obj"/>
       </geometry>
     </collision>
     <inertial>
@@ -403,7 +403,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://spot_IL_environment/models/meshes/hl.lleg.obj"/>
+        <mesh filename="package://spot_IL_environment/models/spot/meshes/hl.lleg.obj"/>
       </geometry>
       <material name="hind_left.lowerleg">
         <color rgba="0.2 0.2 0.2 1"/>
@@ -412,7 +412,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://spot_IL_environment/models/meshes/hl.lleg.obj"/>
+        <mesh filename="package://spot_IL_environment/models/spot/meshes/hl.lleg.obj"/>
       </geometry>
     </collision>
     <inertial>
@@ -436,7 +436,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://spot_IL_environment/models/meshes/hr.hip.obj"/>
+        <mesh filename="package://spot_IL_environment/models/spot/meshes/hr.hip.obj"/>
       </geometry>
       <material name="hind_right.hip">
         <color rgba="0.2 0.2 0.2 1"/>
@@ -445,7 +445,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://spot_IL_environment/models/meshes/hr.hip.obj"/>
+        <mesh filename="package://spot_IL_environment/models/spot/meshes/hr.hip.obj"/>
       </geometry>
     </collision>
     <inertial>
@@ -469,7 +469,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://spot_IL_environment/models/meshes/hr.uleg.obj"/>
+        <mesh filename="package://spot_IL_environment/models/spot/meshes/hr.uleg.obj"/>
       </geometry>
       <material name="hind_right.upperleg">
         <color rgba="1 0.8431 0 1"/>
@@ -478,7 +478,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://spot_IL_environment/models/meshes/hr.uleg.obj"/>
+        <mesh filename="package://spot_IL_environment/models/spot/meshes/hr.uleg.obj"/>
       </geometry>
     </collision>
     <inertial>
@@ -502,7 +502,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://spot_IL_environment/models/meshes/hr.lleg.obj"/>
+        <mesh filename="package://spot_IL_environment/models/spot/meshes/hr.lleg.obj"/>
       </geometry>
       <material name="hind_right.lowerleg">
         <color rgba="0.2 0.2 0.2 1"/>
@@ -511,7 +511,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://spot_IL_environment/models/meshes/hr.lleg.obj"/>
+        <mesh filename="package://spot_IL_environment/models/spot/meshes/hr.lleg.obj"/>
       </geometry>
     </collision>
     <inertial>

@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <model name="red_cube">
+    <!-- Cube Position -->
+    <pose>0 0 0 0 0 0</pose>
+    <static>true</static>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <!-- Cube Size -->
+            <size>1 1 1</size>
+          </box>
+        </geometry>
+        <material>
+          <!-- Cube Color -->
+          <ambient>1 0 0 1</ambient>
+        </material>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <!-- Cube Size -->
+            <size>1 1 1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+</sdf>

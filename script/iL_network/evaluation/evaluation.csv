@@ -1,0 +1,6 @@
+,FiveResNet18MLP5_initial_0_133.pth,FiveResNet18MLP5_mixed_2_311.pth,FiveResNet18MLP5_mixed_0_297.pth
+Original,100.0,0.0,0.0
+Remove red_cube,63.64,0.0,0.0
+Remove yellow_cube,100.0,0.0,0.0
+Remove blue_cube,0.0,0.0,0.0
+Remove green_cube,100.0,0.0,0.0
