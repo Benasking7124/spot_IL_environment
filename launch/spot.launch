@@ -1,10 +1,10 @@
 <launch>
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
-        <arg name="world_name" value="$(find spot_IL_environment)/worlds/gazebo.world"/>
+        <arg name="world_name" value="$(find spot_IL_environment)/worlds/map1.world"/>
         <arg name="paused" value="true"/>
     </include>
 
-    <param name="robot_description" textfile="$(find spot_IL_environment)/models/spot.urdf" />
+    <param name="robot_description" textfile="$(find spot_IL_environment)/models/spot/spot.urdf" />
 
     <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" output="screen"
         args="-param robot_description -urdf -model spot -x 0 -y 0 -z 0.68"/>

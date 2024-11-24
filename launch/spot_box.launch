@@ -1,18 +1,20 @@
 <launch>
 
+    <env name="GAZEBO_MODEL_PATH" value="${GAZEBO_MODEL_PATH}:$(find spot_IL_environment)/models"/>
+
     <arg name="gazebo_headless" default="false" />
     <param name="gazebo_headless" value="$(arg gazebo_headless)" />
 
     <!-- Spawn World -->
-    <arg name="world_name" default="world1.yaml" />
+    <arg name="world_name" default="map1.world" />
     <param name="world_name" value="$(arg world_name)"/>
 
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="world_name" value="$(find spot_IL_environment)/worlds/$(arg world_name)"/>
         <arg name="paused" value="true"/>
         <arg name="gui" value="true" if="$(eval arg('gazebo_headless') == 'false')" />
         <arg name="headless" value="$(arg gazebo_headless)" />
     </include>
-     <node name="spawn_world" pkg="spot_IL_environment" type="spawn_world.py" output="screen" />
 
     <!-- Spawn Spot Robot -->
     <param name="robot_description" textfile="$(find spot_IL_environment)/models/spot/spot_box.urdf" />

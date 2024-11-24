@@ -1,11 +1,9 @@
 #!/usr/bin/env python3
-import rospy, subprocess, rospkg, csv, yaml
-import numpy as np
+import rospy, subprocess, rospkg, csv, yaml, os, xmltodict
 from tf.transformations import quaternion_from_euler
 from geometry_msgs.msg import Pose
 from gazebo_msgs.msg import ModelState
-from gazebo_msgs.srv import SetModelState, GetModelState, DeleteModel
-from spawn_world import spawn_gazebo_model
+from gazebo_msgs.srv import SetModelState, GetModelState, DeleteModel, SpawnModel
 
 ERROR_TOLERANCE = 5e-2
 
@@ -94,6 +92,56 @@ def record_result(result_path, result, header_list):
         
         writer.writerows(result)
 
+def spawn_gazebo_model(gazebo_model, sdf_version):
+    
+    ## Get the path for the Gazebo model
+    package_path = rospkg.RosPack().get_path('spot_IL_environment')
+    gazebo_model_type = gazebo_model['uri'].split("://", 1)[1]
+    gazebo_model_path = package_path + '/models/' + gazebo_model_type
+
+    if not os.path.exists(gazebo_model_path):
+        gazebo_model_path = os.path.expanduser('~/.gazebo/models/' + gazebo_model_type)
+
+    ## Load the model file
+    with open(gazebo_model_path + '/model.config') as f:
+            gazebo_model_config = f.read()
+
+    gazebo_model_sdfs = xmltodict.parse(gazebo_model_config)['model']['sdf']
+    
+    if isinstance(gazebo_model_sdfs, list):
+         gazebo_model_sdf = next((item for item in gazebo_model_sdfs if item['@version'] == sdf_version), gazebo_model_sdfs[-1])['#text']
+
+    else:
+         gazebo_model_sdf = gazebo_model_sdfs['#text']
+
+    gazebo_model_sdf_path = gazebo_model_path + '/' + gazebo_model_sdf
+
+    with open(gazebo_model_sdf_path, "r") as f:
+        gazebo_model_xml = f.read()
+    
+    ## Get the pose of Gazebo model
+    pose_list = [float(num) for num in gazebo_model['pose'].split()]
+    gazebo_model_pose = Pose()
+    gazebo_model_pose.position.x = pose_list[0]
+    gazebo_model_pose.position.y = pose_list[1]
+    gazebo_model_pose.position.z = pose_list[2]
+
+    q = quaternion_from_euler(pose_list[3], pose_list[4], pose_list[5])
+    gazebo_model_pose.orientation.x = q[0]
+    gazebo_model_pose.orientation.y = q[1]
+    gazebo_model_pose.orientation.z = q[2]
+    gazebo_model_pose.orientation.w = q[3]
+
+    rospy.wait_for_service('/gazebo/spawn_sdf_model')
+    spawn_model = rospy.ServiceProxy('/gazebo/spawn_sdf_model', SpawnModel)
+
+    ## Spawn the Gazebo model
+    try:
+        spawn_model(gazebo_model['name'], gazebo_model_xml, '', gazebo_model_pose, 'world')
+    
+    except rospy.ServiceException as e:
+        rospy.logerr(f"Failed to spawn model {gazebo_model['name']}: {e}")
+
 if __name__ == '__main__':
 
     # ----- ROS Initialization -----
@@ -141,10 +189,14 @@ if __name__ == '__main__':
     world_name = rospy.get_param('world_name')
     world_path = package_path + '/worlds/' + world_name
     with open(world_path, "r") as f:
-        world = yaml.safe_load(f)
-    gazebo_model_list = world['models']
+        world_xml = f.read()
+    sdf_version = xmltodict.parse(world_xml)['sdf']['@version']
+    gazebo_models_xml = xmltodict.parse(world_xml)['sdf']['world']['include']
 
-    for gazebo_model in gazebo_model_list:
+    for gazebo_model in gazebo_models_xml:
+
+        if 'wall' in gazebo_model['name']:
+            continue
 
         # Remove Gazebo model
         delete_model(gazebo_model['name'])
@@ -156,7 +208,7 @@ if __name__ == '__main__':
         record_result(result_path, result, test_IL_model)
 
         # Add Gazebo model back
-        spawn_gazebo_model(gazebo_model)
+        spawn_gazebo_model(gazebo_model, sdf_version)
 
     # ----- Write result to file -----
     record_result(result_path, result, test_IL_model)
