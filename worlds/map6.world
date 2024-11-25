@@ -125,42 +125,105 @@
     <include>
       <name>table</name>
       <uri>model://table</uri>
-      <pose>1 -4 -0.1 0 0 0</pose>
+      <pose>2 0 -0.1 0 0 0</pose>
+    </include>
+
+    <!-- Table model -->
+    <include>
+      <name>table2</name>
+      <uri>model://table</uri>
+      <pose>4 0 -0.1 0 0 0</pose>
+    </include>
+
+    <!-- Table model -->
+    <include>
+      <name>table3</name>
+      <uri>model://table</uri>
+      <pose>-2 0 -0.1 0 0 0</pose>
+    </include>
+
+    <!-- Table model -->
+    <include>
+      <name>table4</name>
+      <uri>model://table</uri>
+      <pose>-4 0 -0.1 0 0 0</pose>
+    </include>
+
+    <!-- Table model -->
+    <include>
+      <name>table5</name>
+      <uri>model://table</uri>
+      <pose>2 2.5 -0.1 0 0 0</pose>
+    </include>
+
+    <!-- Table model -->
+    <include>
+      <name>table6</name>
+      <uri>model://table</uri>
+      <pose>4 2.5 -0.1 0 0 0</pose>
+    </include>
+
+    <!-- Table model -->
+    <include>
+      <name>table7</name>
+      <uri>model://table</uri>
+      <pose>-2 2.5 -0.1 0 0 0</pose>
+    </include>
+
+    <!-- Table model -->
+    <include>
+      <name>table8</name>
+      <uri>model://table</uri>
+      <pose>-4 2.5 -0.1 0 0 0</pose>
+    </include>
+
+    <!-- Table model -->
+    <include>
+      <name>table9</name>
+      <uri>model://table</uri>
+      <pose>2 -2.5 -0.1 0 0 0</pose>
+    </include>
+
+    <!-- Table model -->
+    <include>
+      <name>table10</name>
+      <uri>model://table</uri>
+      <pose>4 -2.5 -0.1 0 0 0</pose>
+    </include>
+
+    <!-- Table model -->
+    <include>
+      <name>table11</name>
+      <uri>model://table</uri>
+      <pose>-2 -2.5 -0.1 0 0 0</pose>
+    </include>
+
+    <!-- Table model -->
+    <include>
+      <name>table12</name>
+      <uri>model://table</uri>
+      <pose>-4 -2.5 -0.1 0 0 0</pose>
     </include>
 
     <!-- Book Shelf model -->
     <include>
       <name>shelf</name>
       <uri>model://bookshelf</uri>
-      <pose>-3.8 -0.5 0 0 0 1.5708</pose>
+      <pose>2 4 0 0 0 0</pose>
     </include>
 
-    <!-- Human model -->
+    <!-- Book Shelf model -->
     <include>
-      <name>person</name>
-      <uri>model://person_standing</uri>
-      <pose>-1.2 3 0 0 0 0</pose> 
+      <name>shelf2</name>
+      <uri>model://bookshelf</uri>
+      <pose>3.5 4 0 0 0 0</pose>
     </include>
 
      <!-- Trash Can model -->
      <include>
       <name>trash_can</name>
       <uri>model://first_2015_trash_can</uri>
-      <pose>1.4 3 0 0 0 0</pose>
-    </include>
-
-     <!-- Table -->
-     <include>
-      <name>table2</name>
-      <uri>model://cafe_table</uri>
-      <pose>3 -1.092 0 0 0 0</pose>
-    </include>
-
-    <!-- Coke -->
-    <include>
-      <name>coke</name>
-      <uri>model://coke_can</uri>
-      <pose>3 -1.2 0.77 0 0 0</pose>
+      <pose>4 -4.5 0 0 0 0</pose>
     </include>
 
     <gravity>0 0 -9.8</gravity>

@@ -139,14 +139,14 @@
     <include>
       <name>person</name>
       <uri>model://person_standing</uri>
-      <pose>-1.2 3 0 0 0 0</pose> 
+      <pose>-1.2 -3 0 0 0 -3.14</pose> 
     </include>
 
      <!-- Trash Can model -->
      <include>
       <name>trash_can</name>
       <uri>model://first_2015_trash_can</uri>
-      <pose>1.4 3 0 0 0 0</pose>
+      <pose>-1.2 3 0 0 0 0</pose>
     </include>
 
      <!-- Table -->

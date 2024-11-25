@@ -6,7 +6,7 @@
     <param name="gazebo_headless" value="$(arg gazebo_headless)" />
 
     <!-- Spawn World -->
-    <arg name="world_name" default="map1.world" />
+    <arg name="world_name" default="map7.world" />
     <param name="world_name" value="$(arg world_name)"/>
 
     <include file="$(find gazebo_ros)/launch/empty_world.launch">

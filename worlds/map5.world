@@ -132,7 +132,7 @@
     <include>
       <name>shelf</name>
       <uri>model://bookshelf</uri>
-      <pose>-3.8 -0.5 0 0 0 1.5708</pose>
+      <pose>-3 -2 0 0 0 1.5708</pose>
     </include>
 
     <!-- Human model -->

@@ -125,7 +125,7 @@
     <include>
       <name>table</name>
       <uri>model://table</uri>
-      <pose>1 -4 -0.1 0 0 0</pose>
+      <pose>-3 -4 -0.1 0 0 0</pose>
     </include>
 
     <!-- Book Shelf model -->
